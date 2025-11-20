@@ -1,8 +1,7 @@
 import axios from "axios";
 import { toast } from "react-toastify";
 
-axios.defaults.baseURL = "https://expense-tracker-3kuk.vercel.app/api";
-
+axios.defaults.baseURL = "https://expense-tracker-back-p908.onrender.com/api/";
 axios.defaults.withCredentials = false;
 
 axios.interceptors.request.use(

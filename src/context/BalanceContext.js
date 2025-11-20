@@ -1,6 +1,5 @@
 import { createContext, useState, useEffect } from "react";
-import axios from "axios";
-
+import { getBalance } from "../api/api";
 export const BalanceContext = createContext();
 
 export const BalanceProvider = ({ children }) => {
@@ -13,9 +12,7 @@ export const BalanceProvider = ({ children }) => {
   const fetchBalance = async () => {
     try {
       const token = localStorage.getItem("token");
-      const res = await axios.get("http://localhost:2225/api/balance", {
-        headers: { Authorization: `Bearer ${token}` },
-      });
+      const res = await getBalance();
       setBalance(res.data);
     } catch (err) {
       console.error("Failed to fetch balance:", err);

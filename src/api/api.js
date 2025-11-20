@@ -206,5 +206,12 @@ export async function editExpense(id, data) {
     return error.response || null;
   }
 }
-
+export async function getBalance() {
+  try {
+    return await axios.get("/balance");
+  } catch (error) {
+    console.error("Error fetching balance:", error);
+    return null;
+  }
+}
 export default axios;

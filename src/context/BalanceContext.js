@@ -1,5 +1,6 @@
 import { createContext, useState, useEffect } from "react";
 import { getBalance } from "../api/api";
+
 export const BalanceContext = createContext();
 
 export const BalanceProvider = ({ children }) => {
@@ -11,7 +12,6 @@ export const BalanceProvider = ({ children }) => {
 
   const fetchBalance = async () => {
     try {
-      const token = localStorage.getItem("token");
       const res = await getBalance();
       setBalance(res.data);
     } catch (err) {
